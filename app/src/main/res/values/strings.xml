@@ -15,8 +15,9 @@
     <string name="enter_your_full_name">Enter your full name</string>
 
     <string name="reset">Reset</string>
-    <string name="enter_your_phone_number">enter your phone number</string>
-    <string name="user">user</string>
+    <string name="enter_your_phone_number">Enter your phone number</string>
+    <string name="user">User</string>
+    <string name="your_name">Your Name</string>
     <string-array name="spinner_label">
         <item>Wedding</item>
         <item>Birthday Party</item>
