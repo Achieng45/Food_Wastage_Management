@@ -40,9 +40,7 @@
         android:textColor="#C5CBE3"
         android:textSize="15sp"
         android:textStyle="italic"
-        app:layout_constraintTop_toBottomOf="@+id/header">
-
-    </TextView>
+        app:layout_constraintTop_toBottomOf="@+id/header" />
 
 
     <EditText
@@ -107,9 +105,9 @@
 
 
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="-3dp"
-        android:layout_marginBottom="438dp"
-
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="410dp"
+        app:ccp_arrowColor="@color/white"
         tools:layout_editor_absoluteX="18dp"
         tools:layout_editor_absoluteY="287dp" />
 </RelativeLayout>
@@ -120,7 +118,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="111dp"
         android:layout_marginTop="8dp"
-
+        android:drawableStart="@drawable/ic_phone_black"
         android:ems="10"
         android:hint="@string/enter_your_phone_number"
         android:inputType="phone"
