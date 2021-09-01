@@ -39,6 +39,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
+
 public class EventOrganiser extends AppCompatActivity implements View.OnClickListener,AdapterView.OnItemSelectedListener {
     private DatabaseReference databaseRef;
     private DatabaseReference mDatabaseUsers;
@@ -120,7 +121,6 @@ public class EventOrganiser extends AppCompatActivity implements View.OnClickLis
         if (event_spinner != null) {
             event_spinner.setOnItemSelectedListener(this);
 
-
         }
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.spinner_label, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -199,7 +199,7 @@ public class EventOrganiser extends AppCompatActivity implements View.OnClickLis
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()){
-                            Toast.makeText(EventOrganiser.this, "Event Added Successsfuly", Toast.LENGTH_LONG).show();
+                            Toast.makeText(EventOrganiser.this, "Event Added Successfully!", Toast.LENGTH_LONG).show();
                         }
                     }
                 });
@@ -224,7 +224,7 @@ public class EventOrganiser extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-        Toast toast=Toast.makeText(this,"nothing selected",Toast.LENGTH_SHORT);
+        Toast toast=Toast.makeText(this,"Nothing selected",Toast.LENGTH_SHORT);
         toast.show();
 
     }
