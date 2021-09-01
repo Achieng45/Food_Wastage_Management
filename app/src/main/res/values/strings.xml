@@ -1,4 +1,3 @@
-
 <resources>
     <string name="app_name">Food Wastage Management</string>
     <string name="food_aid">FOOD AID</string>
@@ -25,5 +24,6 @@
         <item>Graduation party</item>
         <item>Other</item>
     </string-array>
-
+<string name="close"></string>
+    <string name="open"></string>
 </resources>

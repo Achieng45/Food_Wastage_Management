@@ -1,56 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
+
+
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
-
+    android:background="@color/white"
     app:cardElevation="8dp"
     app:cardCornerRadius="10dp"
     android:padding="10dp"
-    android:layout_height="110dp">
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    >
+
+
+
     <LinearLayout
+        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="10dp"
         android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Location:"
                 android:padding="5dp"
+                android:text="Event :"
+                android:textColor="@color/black"
                 android:textSize="20sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
+
             <TextView
+                android:id="@+id/eventtype"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                 android:id="@+id/location"
-                android:textSize="17sp"
                 android:layout_marginStart="20dp"
-                android:textStyle="bold"/>
+                android:textColor="@color/black"
+                android:textSize="17sp" />
 
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-    >
+            android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Date :"
                 android:padding="5dp"
+                android:text="Location :"
+                android:textColor="@color/black"
                 android:textSize="20sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Date :"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@color/black" />
+
+            <TextView
                 android:id="@+id/date"
-                android:textSize="17sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:textStyle="bold"/>
+                android:textColor="@color/black"
+                android:textSize="17sp"/>
 
         </LinearLayout>
 
@@ -64,45 +105,40 @@
                 android:layout_height="wrap_content"
                 android:padding="5dp"
                 android:text="Number of plates:"
-
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:textColor="@color/black"
                 android:id="@+id/plates"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:textSize="17sp"
-                android:textStyle="bold" />
+                android:textSize="17sp" />
 
-            <Button
-                android:id="@+id/book"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="70dp"
-                android:onClick="Book"
-                android:text="Book Event" />
+
         </LinearLayout>
-
-
-
-
-
-
-
-
-
+        <Button
+            android:id="@+id/book"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="send"
+            android:layout_margin="5dp"
+            android:layout_gravity="center"
+            android:padding="8dp"
+            android:text="Book Event" />
 
     </LinearLayout>
-
-
-
-
-
-
-
-
-
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:foregroundGravity="center_vertical|fill_vertical|clip_vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_gravity="center" />
 
 </androidx.cardview.widget.CardView>

@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.hbb20.CountryCodePicker;
 
 import java.util.Objects;
 
@@ -94,12 +95,12 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
             return;
         }
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            txt_email.setError("Please provide a valid email");
+            txt_email.setError("please provide a valid email");
             txt_email.requestFocus();
             return;
         }
         if (password.isEmpty()) {
-            txt_password.setError("Password is required");
+            txt_password.setError("password is required");
             txt_password.requestFocus();
             return;
         }
@@ -129,9 +130,9 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
                     FirebaseUser userm = mAuth.getCurrentUser();
                     userm.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
-                        public void onComplete(@NonNull Task<Void> task) { ProgressBar.setVisibility(View.GONE);
+                        public void onComplete(@NonNull Task<Void> task) {                            ProgressBar.setVisibility(View.GONE);
                             if (task.isSuccessful()) {
-                                Toast.makeText(RegisterUser.this, "User has been registered successfully! Please check your email for verification", Toast.LENGTH_LONG).show();
+                                Toast.makeText(RegisterUser.this, "user has been registered successfully! Please check your email for verification", Toast.LENGTH_LONG).show();
                                 txt_email.setText("");
                                 txt_password.setText("");
                                 //Adding user details
@@ -168,56 +169,6 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
         });
     }
 }
-
-
-
-
-
-
-
-                            /*    //Main
-                                Users user = new Users(fullName, email, finalPosition, phonenumber);
-
-
-                                FirebaseDatabase.getInstance().getReference("Users")
-                                        .child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid())
-                                        .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        if (task.isSuccessful()) {
-                                            Toast.makeText(RegisterUser.this, "user has been registered successfully!", Toast.LENGTH_LONG).show();
-                                            ProgressBar.setVisibility(View.GONE);
-                                            finish();
-                                            startActivity(new Intent(RegisterUser.this, MainActivity.class));
-                                        } else {
-                                            Toast.makeText(RegisterUser.this, "Failed to register!Try again", Toast.LENGTH_LONG).show();
-                                            ProgressBar.setVisibility(View.GONE);
-                                        }
-
-                                    }
-                                });
-
-
-
-
-
-                } else {
-                    Toast.makeText(RegisterUser.this, "Failed to register!Try again", Toast.LENGTH_LONG).show();
-                    ProgressBar.setVisibility(View.GONE);
-                }
-            }
-        });
-    }
-}
-
-
-                             */
-
-
-
-
-
-
 
 
 

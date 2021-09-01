@@ -26,6 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
     public static final String TAG = "YOUR-TAG-NAME";
 
     private TextView register, forgotpassword;
@@ -63,52 +64,52 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.GONE);
 
         mAuth = FirebaseAuth.getInstance();
 
-
     }
-    //set onclick listeners
-    @Override
-    public void onClick(View v) {
-        int id = v.getId();
-        if (id == R.id.register) {
-            startActivity(new Intent(this, RegisterUser.class));
-        } else if (id == R.id.forgotpassword) {
-            startActivity(new Intent(this, ForgotPassword.class));
-        } else if (id == R.id.login_button) {
-            Toast.makeText(MainActivity.this, "PROCESSING....",
-                    Toast.LENGTH_LONG).show();
-            // get the email and password entered by the user
-            String email = txt_email.getText().toString().trim();
-            String password = txt_password.getText().toString().trim();
-            if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
-                // use firebase authentication instance you create and call the method  signInWithEmailAndPassword method passing the email and password you got from the views   //Further call the addOnCompleteListener() method to handle the  Authentication result
-                mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            if (FirebaseAuth.getInstance().getCurrentUser().isEmailVerified()) {
-                                checkUserExistence();
+        //set onclick listeners
+        @Override
+        public void onClick (View v){
+            int id = v.getId();
+            if (id == R.id.register) {
+                startActivity(new Intent(this, RegisterUser.class));
+            } else if (id == R.id.forgotpassword) {
+                startActivity(new Intent(this, ForgotPassword.class));
+            } else if (id == R.id.login_button) {
+                Toast.makeText(MainActivity.this, "PROCESSING....",
+                        Toast.LENGTH_LONG).show();
+                // get the email and password entered by the user
 
-                            } else {
-                                //if the user does not exist in the database reference throw a toast
-                                Toast.makeText(MainActivity.this, "Please verify your email before login", Toast.LENGTH_SHORT).show();
+                String email = txt_email.getText().toString().trim();
+                String password = txt_password.getText().toString().trim();
+                if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
+                    // use firebase authentication instance you create and call the method  signInWithEmailAndPassword method passing the email and password you got from the views   //Further call the addOnCompleteListener() method to handle the  Authentication result
+                    mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+
+                                if (FirebaseAuth.getInstance().getCurrentUser().isEmailVerified()) {
+                                    checkUserExistence();
+
+                                } else {
+                                    //if the user does not exist in the database reference throw a toast
+                                    Toast.makeText(MainActivity.this, "Please verify your email before login", Toast.LENGTH_SHORT).show();
+                                }
                             }
                         }
-                    }
                     });
-                }
-
-
-                 else {
+                } else {
                     //if the fields for email and password were not completed show a toast
                     Toast.makeText(MainActivity.this, "Fields not complete or invalid credentials", Toast.LENGTH_SHORT).show();
                 }
             }
 
 
-    }
+        }
+
 
         //check if the user exists and redirect to their role
         public void checkUserExistence () {
@@ -162,6 +163,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     }
+
+
+
+
+
 
 
 
